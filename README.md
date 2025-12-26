@@ -93,7 +93,6 @@ Nenhuma configuração adicional é necessária. O projeto está pronto para usa
 npx playwright test
 ```
 
-# Após executar os testes:
 ```bash
 # Abrir relatório HTML
 npx playwright show-report
