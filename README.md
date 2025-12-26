@@ -1,5 +1,8 @@
 # ParaBank Playwright - Automação de Testes
 
+![Playwright Tests](https://github.com/FranciscoGeorgeR/parabank_playwright/actions/workflows/playwright-allure.yml/badge.svg)
+[![Allure Report](https://img.shields.io/badge/Allure-Report-green)](https://FranciscoGeorgeR.github.io/parabank_playwright/)
+
 ##  Visão Geral
 
 Projeto de automação de testes end-to-end (E2E) para o sistema **ParaBank** utilizando a framework **Playwright**.
