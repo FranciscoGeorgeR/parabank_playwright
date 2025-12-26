@@ -91,6 +91,7 @@ Nenhuma configuração adicional é necessária. O projeto está pronto para usa
 ```bash
 # Executar todos os testes
 npx playwright test
+```
 
 # Após executar os testes:
 ```bash
