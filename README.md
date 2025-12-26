@@ -1,4 +1,4 @@
-# ParaBank Playwright - Automação de Testes BDD
+# ParaBank Playwright - Automação de Testes
 
 ##  Visão Geral
 

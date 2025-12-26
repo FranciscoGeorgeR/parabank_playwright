@@ -14,15 +14,15 @@ test.describe("Login", () => {
 
     });
 
-    test("CT-007 – Senha incorreta (sistema aceita)", async ({ page }) => {
+    test("CT-007 – Senha incorreta", async ({ page }) => {
         await page.LoginPage.login(authUser.username, "senhaIncorreta");
-        await page.LoginPage.assertLoginSuccess();
+        await page.LoginPage.assertInvalidCredentialsError();
 
     });
 
     test("CT-008 – Usuário inexistente", async ({ page }) => {
         await page.LoginPage.login("user_inexistente", "qa123");
-        await page.LoginPage.assertLoginSuccess();
+        await page.LoginPage.assertInvalidCredentialsError();
 
     });
 
