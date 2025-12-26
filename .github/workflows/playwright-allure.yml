@@ -2,9 +2,9 @@ name: Playwright Tests + Allure Report
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 permissions:
   contents: write
@@ -22,18 +22,21 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Enable Corepack (Yarn)
+        run: corepack enable
+
+      - name: Install dependencies (Yarn)
+        run: yarn install --immutable
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps
+        run: yarn playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: yarn test
         continue-on-error: true
 
       - name: Generate Allure Report
-        run: npx allure generate allure-results --clean -o allure-report
+        run: yarn allure generate allure-results --clean -o allure-report
 
       - name: Deploy Allure to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

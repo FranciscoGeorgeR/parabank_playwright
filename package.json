@@ -2,7 +2,10 @@
   "name": "teste_tecnico_playwright",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:allure": "playwright test && allure generate allure-results --clean -o allure-report"
+  },
   "keywords": [],
   "author": "Francisco George Rodrigues de Sousa",
   "license": "ISC",
