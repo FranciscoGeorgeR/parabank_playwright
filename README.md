@@ -92,12 +92,9 @@ Nenhuma configuração adicional é necessária. O projeto está pronto para usa
 # Executar todos os testes
 npx playwright test
 
-### 4. Visualizar Relatórios
-
-Após executar os testes:
-
+# Após executar os testes:
 ```bash
-# Abrir relatório HTML (após execução)
+# Abrir relatório HTML
 npx playwright show-report
 ```
 
@@ -206,14 +203,14 @@ parabank-playwright/
 
 ## 🚨 Questões Críticas Identificadas
 
-### 🔴 GAP CRÍTICO #1: Validação de Credenciais
+###  GAP CRÍTICO #1: Validação de Credenciais
 
 - **CT-007:** Login aceita senhas incorretas
 - **CT-008:** Login aceita usuários inexistentes
 - **Impacto:** Falha crítica de segurança
 - **Status:** ❌ Sistema não valida credenciais
 
-### 🟡 GAP MÉDIO #2: Validação de Zip Code
+###  GAP MÉDIO #2: Validação de Zip Code
 
 - **CT-005:** Zip Code com caracteres especiais é aceito
 - **Impacto:** Qualidade de dados comprometida
@@ -223,7 +220,7 @@ Veja mais detalhes em: [PLANO_COBERTURA_RASTREABILIDADE.md#4-gap-analysis](PLANO
 
 ---
 
-## 📊 Métricas e KPIs
+##  Métricas e KPIs
 
 |     Métrica             | Valor | Alvo  | Status           |
 |-------------------------|-------|-------|------------------|
