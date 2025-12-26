@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
+    "report:allure": "allure generate allure-results --clean -o allure-report",
     "test:allure": "playwright test && allure generate allure-results --clean -o allure-report"
   },
   "keywords": [],
