@@ -15,7 +15,7 @@ export function buildUser(overrides?: Partial<User>): User {
     zipCode: faker.location.zipCode(),
     phone: faker.phone.number(),
     ssn: faker.string.numeric(9),
-    username: `temp_${firstName}_${lastName}`,
+    username: `qa_chico_${lastName}`,
     password: "qa123",
     confirmPassword: "qa123",
     ...overrides,

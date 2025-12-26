@@ -1,6 +1,6 @@
+
 import { chromium, type FullConfig } from "@playwright/test";
-import { Page, expect } from '@playwright/test';
-import { authUser } from "./tests/support/fixtures/authUser";
+import { buildUser } from "./tests/support/utils/userFake";
 
 export default async function globalSetup(config: FullConfig) {
   const { baseURL } = config.projects[0].use;
@@ -9,17 +9,33 @@ export default async function globalSetup(config: FullConfig) {
   const context = await browser.newContext();
   const page = await context.newPage();
 
-  await page.goto(`${baseURL}/parabank/index.htm`);
+  const user = buildUser();
 
-  await page.locator('input[name="username"]').fill(authUser.username);
-  await page.locator('input[name="password"]').fill(authUser.password);
-  await page.getByRole("button", { name: "Log In" }).click();
+  await page.goto(`${baseURL}/parabank/register.htm`);
 
-  await expect(page.getByRole("heading", { name: "Accounts Overview" })).toBeVisible()
+  await page.locator("#customer\\.firstName").fill(user.firstName);
+  await page.locator("#customer\\.lastName").fill(user.lastName);
+  await page.locator("#customer\\.address\\.street").fill(user.address);
+  await page.locator("#customer\\.address\\.city").fill(user.city);
+  await page.locator("#customer\\.address\\.state").fill(user.state);
+  await page.locator("#customer\\.address\\.zipCode").fill(user.zipCode);
+  await page.locator("#customer\\.phoneNumber").fill(user.phone);
+  await page.locator("#customer\\.ssn").fill(user.ssn);
+  await page.locator("#customer\\.username").fill(user.username);
+  await page.locator("#customer\\.password").fill(user.password);
+  await page.locator("#repeatedPassword").fill(user.confirmPassword);
 
-  await context.storageState({
-    path: "playwright/.auth/auth.json",
-  });
+  await page.locator('input[value="Register"]').click();
+
+  //valida que cadastrou/logou
+  await page.locator("#rightPanel").waitFor();
+  await page
+    .locator("#rightPanel")
+    .getByText("Your account was created successfully")
+    .waitFor();
+
+  //salva sessão
+  await context.storageState({ path: "playwright/.auth/auth.json" });
 
   await browser.close();
 }
