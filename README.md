@@ -2,7 +2,7 @@
 
 ##  Visão Geral
 
-Projeto de automação de testes end-to-end (E2E) para o sistema **ParaBank** utilizando a framework **Playwright** com padrão **BDD (Behavior Driven Development)**.
+Projeto de automação de testes end-to-end (E2E) para o sistema **ParaBank** utilizando a framework **Playwright**.
 
 Este projeto valida os fluxos críticos de um sistema de Internet Banking:
 -  Cadastro de usuários
